@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+	 
+    <!-- font roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet" />
+	  <link rel="stylesheet" href="dang ky css.css">
+  </head>
+  <body>
+    <!-- form signup -->
+    <div class="signup">
+      <div class="signup__container">
+        <h1>Đăng Ký</h1>
+        <form action="">
+          <h5>Email</h5>
+          <input type="text" class="input-signup-username" />
+          <h5>Password</h5>
+          <input type="password" class="input-signup-password" />
+          <button type="submit" class="signup__signInButton">Đăng Ký</button>
+        </form>
+        <a href="signup.html" class="signup__registerButton"
+          >Tạo tài khoản mới</a
+        >
+      </div>
+    </div>
+  </body>
+	<script>
+	// validation form register and register user local storage
+const inputUsernameRegister = document.querySelector(".input-signup-username");
+const inputPasswordRegister = document.querySelector(".input-signup-password");
+const btnRegister = document.querySelector(".signup__signInButton");
+
+// validation form register and register user local storage
+
+btnRegister.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    inputUsernameRegister.value === "" ||
+    inputPasswordRegister.value === ""
+  ) {
+    alert("vui lòng không để trống");
+  } else {
+    // array user
+    const user = {
+      username: inputUsernameRegister.value,
+      password: inputPasswordRegister.value,
+    };
+    let json = JSON.stringify(user);
+    localStorage.setItem(inputUsernameRegister.value, json);
+    alert("Đăng Ký Thành Công");
+    window.location.href = "file:///D:/web%20java.html";
+  }
+});
+		</script>
+
+  <script src="signup.js"></script>
+</html>

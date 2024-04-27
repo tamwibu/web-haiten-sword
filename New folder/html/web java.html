@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href= "file:///D:/style.css" />
+    <!-- font roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- from login -->
+    <div class="login">
+      <div class="login__container">
+        <h1>Đăng Nhập</h1>
+        <form>
+          <h5>Email</h5>
+          <input type="text" class="input-login-username" />
+          <h5>Password</h5>
+          <input type="password" class="input-login-password" />
+          <button type="submit" class="login__signInButton">Đăng Nhập</button>
+        </form>
+        <a href="file:///C:/Users/admin/Downloads/signup.html" class="login__registerButton"
+          >Tạo tài khoản mới</a
+        >
+      </div>
+    </div>
+  </body>
+  <script src="file:///D:/main.js"></script>
+	<!-- form signup -->
+    
+  <script>
+	// validation form login
+const inputUsername = document.querySelector(".input-login-username");
+const inputPassword = document.querySelector(".input-login-password");
+const btnLogin = document.querySelector(".login__signInButton");
+
+// validation form login
+
+btnLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (inputUsername.value === "" || inputPassword.value === "") {
+    alert("vui lòng không để trống");
+  } else {
+    const user = JSON.parse(localStorage.getItem(inputUsername.value));
+    if (
+      user.username === inputUsername.value &&
+      user.password === inputPassword.value
+    ) {
+      alert("Đăng Nhập Thành Công");
+      window.location.href = "file:///C:/Users/admin/Downloads/tam%20haiten%20html.html";
+    } else {
+      alert("Đăng Nhập Thất Bại");
+    }
+  }
+});
+
+	</script>
+	<script src="file:///D:/signup.js"></script>
+	<script>
+	// validation form register and register user local storage
+const inputUsernameRegister = document.querySelector(".input-signup-username");
+const inputPasswordRegister = document.querySelector(".input-signup-password");
+const btnRegister = document.querySelector(".signup__signInButton");
+
+// validation form register and register user local storage
+
+btnRegister.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    inputUsernameRegister.value === "" ||
+    inputPasswordRegister.value === ""
+  ) {
+    alert("vui lòng không để trống");
+  } else {
+    // array user
+    const user = {
+      username: inputUsernameRegister.value,
+      password: inputPasswordRegister.value,
+    };
+    let json = JSON.stringify(user);
+    localStorage.setItem(inputUsernameRegister.value, json);
+    alert("Đăng Ký Thành Công");
+    window.location.href = "file:///D:/web%20java.html";
+  }
+});
+
+	</script>
+</html>
